@@ -35,7 +35,7 @@ def count_div(A, B, K):
 
     Args:
       - A: is an integer within the range [0..2,000,000,000]
-      - B: is an integer within the range [0..2,000,000,000] and A ≤ B
+      - B: is an integer within the range [0..2,000,000,000] and A <= B
       - K: is an integer within the range [1..2,000,000,000]
     '''
     divs_count = 0
