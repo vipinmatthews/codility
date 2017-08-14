@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #
-# Test that I passed on codility.com
+# Tests that I passed on codility.com
 #
 
 
-# Task #1
+# Test 1
 def binary_gap(N):
     '''
     A binary gap within a positive integer N is any maximal
@@ -30,7 +30,24 @@ print binary_gap(1041)
 
 
 
-# Task #2
+# Test 2
+def cyclic_rotation(A, K):
+    '''
+    A zero-indexed array A consisting of N integers is given. 
+    Rotation of the array means that each element is shifted right by one index, 
+    and the last element of the array is also moved to the first place.
+    
+    Args:
+      - A: a list
+      - N: integer within the range [1 ... 1000]    
+    '''
+    import collections
+    d = collections.deque(A)
+    d.rotate(K)
+    return list(d)
+
+print cyclic_rotation([1,2,3], 1)
+
 def count_div(A, B, K):
     '''
     Returns the number of integers within the range [A..B] that are divisible by K.
