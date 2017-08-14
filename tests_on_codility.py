@@ -16,10 +16,10 @@ def binary_gap(N):
     Args:
       - N: integer within the range [1..2,147,483,647]
     '''
-    x = str(bin(N)[2:])
-    y = x.split('1')
+    bin_rep = str(bin(N)[2:]) # Getting the binary representation
+    y = bin_rep.split('1') 
     if y[len(y)-1] !='':
-        y = y[:(len(y)-1)]
+        y = y[:(len(y)-1)] # Fix trailing zeroes
     big = 0
     for i in y:
         if str(i).count('0') > big:
