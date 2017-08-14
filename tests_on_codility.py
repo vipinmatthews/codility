@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Test that I passed on codility.com for TopTal company
+# Test that I passed on codility.com
 #
 
 
@@ -16,19 +16,15 @@ def binary_gap(N):
     Args:
       - N: integer within the range [1..2,147,483,647]
     '''
-    bin_representation = bin(N)[2:]
-    max_gap = 0
-    gap_counter = 0
-    gap_started = False
-    for symbol in bin_representation:
-        if symbol == '1':
-            if gap_counter > max_gap:
-                max_gap = gap_counter
-            gap_counter = 0
-            gap_started = True
-        elif gap_started:
-            gap_counter += 1
-    return max_gap
+    x = str(bin(N)[2:])
+    y = x.split('1')
+    if y[len(y)-1] !='':
+        y = y[:(len(y)-1)]
+    big = 0
+    for i in y:
+        if str(i).count('0') > big:
+            big = str(i).count('0')
+    return big
 
 print binary_gap(1041)
 
