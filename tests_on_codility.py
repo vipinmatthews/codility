@@ -48,6 +48,18 @@ def cyclic_rotation(A, K):
 
 print cyclic_rotation([1,2,3], 1)
 
+def missing_element(A):
+    '''
+    A zero-indexed array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], 
+    which means that exactly one element is missing. Your goal is to find that missing element.
+    '''
+    n = len(A)+1
+    sum_calculated = n*(n+1)/2
+    sum_actual = sum(A)
+    return (sum_calculated - sum_actual)
+
+print missing_element([2,3,1,5])
+
 def count_div(A, B, K):
     '''
     Returns the number of integers within the range [A..B] that are divisible by K.
