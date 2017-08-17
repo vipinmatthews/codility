@@ -6,7 +6,6 @@
 #
 
 
-# Test 1
 def binary_gap(N):
     '''
     A binary gap within a positive integer N is any maximal
@@ -30,7 +29,6 @@ print binary_gap(1041)
 
 
 
-# Test 2
 def cyclic_rotation(A, K):
     '''
     A zero-indexed array A consisting of N integers is given. 
@@ -48,6 +46,8 @@ def cyclic_rotation(A, K):
 
 print cyclic_rotation([1,2,3], 1)
 
+
+
 def missing_element(A):
     '''
     A zero-indexed array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], 
@@ -59,6 +59,8 @@ def missing_element(A):
     return (sum_calculated - sum_actual)
 
 print missing_element([2,3,1,5])
+
+
 
 def count_div(A, B, K):
     '''
@@ -81,7 +83,6 @@ print count_div(1, 200000000, 1000)
 
 
 
-# Task #3
 def triangle(A):
     '''
     Calculate triangel of integers, where sentense of numbers P, Q, R
