@@ -61,26 +61,29 @@ def missing_element(A):
 print missing_element([2,3,1,5])
 
 
+def oddOccurrence(A):
+    '''
+An array contains an odd number of elements, and each element of the array can be paired with another element 
+that has the same value, except for one element that is left unpaired. Find the unpaired element.
+    '''
+    oddOne = 0
+    for number in A:
+        oddOne = oddOne ^ number
+    return oddOne
+
+print oddOccurrence([1,2,1])
 
 def count_div(A, B, K):
     '''
-    Returns the number of integers within the range [A..B] that are divisible by K.
-
-    Used generators to save memory on large amounts of data.
-
-    Args:
-      - A: is an integer within the range [0..2,000,000,000]
-      - B: is an integer within the range [0..2,000,000,000] and A <= B
-      - K: is an integer within the range [1..2,000,000,000]
+    Returns the number of integers within the range [A,B] that are divisible by K.
     '''
-    divs_count = 0
-    for x in xrange(A, B + 1):
-        if (x % K) == 0:
-            divs_count += 1
-    return divs_count
+    if A % K == 0:
+        n = 1
+    else:
+        n = 0
+    return (n + B/K - A/K)
 
-print count_div(1, 200000000, 1000)
-
+print count_div(6, 11, 2)
 
 
 def triangle(A):
