@@ -86,6 +86,19 @@ def count_div(A, B, K):
 print count_div(6, 11, 2)
 
 
+def PermCheck(A):
+    '''
+A non-empty zero-indexed array A consisting of N integers is given.A permutation is a sequence containing 
+each element from 1 to N once, and only once.  Check whether array A is a permutation.
+'''
+    Aset = set(A)
+    for i in range(1,len(A)+1):
+        if i not in Aset:
+            return 0
+    return 1
+
+print PermCheck([4,1,3])
+
 def triangle(A):
     '''
     Calculate triangel of integers, where sentense of numbers P, Q, R
