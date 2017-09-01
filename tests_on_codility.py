@@ -99,6 +99,25 @@ each element from 1 to N once, and only once.  Check whether array A is a permut
 
 print PermCheck([4,1,3])
 
+
+def FrogRiverOne(X, A):
+    '''
+    Find the earliest time when a frog can jump to the other side of a river. 
+    '''
+    y = set([i for i in range(1,X+1)])
+    time = 0
+    while len(y) > 0:
+        if time < len(A):
+            y.discard(A[time])
+            time = time + 1
+        else:
+            return -1
+    return time-1
+
+print FrogRiverOne(5, [1, 3, 1, 4, 2, 3, 5, 4])
+
+
+
 def triangle(A):
     '''
     Calculate triangel of integers, where sentense of numbers P, Q, R
