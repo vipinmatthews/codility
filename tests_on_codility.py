@@ -117,6 +117,22 @@ def FrogRiverOne(X, A):
 print FrogRiverOne(5, [1, 3, 1, 4, 2, 3, 5, 4])
 
 
+def MaxCounters(N, A):
+    '''
+    Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum. 
+    '''
+    counters = N * [0]
+    next_max_counter =  max_counter = 0
+    for oper in A:
+        if oper <= N:
+            current_counter = counters[oper-1] = max(counters[oper-1] +1, max_counter+1)
+            next_max_counter = max(current_counter, next_max_counter)
+        else:
+            max_counter = next_max_counter
+            
+    return [c if c > max_counter else max_counter for c in counters]
+
+print MaxCounters(5, [3,4,4,6,1,4,4])
 
 def triangle(A):
     '''
