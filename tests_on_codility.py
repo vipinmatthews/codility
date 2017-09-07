@@ -146,9 +146,8 @@ def isSingleSwapSort(A):
             break
         elif A[i] > A[i-1]:
             high = i
-
-    if i == n-1:
-        return True
+    else:
+        return True #returns True if for loop encounters the break statement
 
     low = n-1
     for j in range(n-1, 0, -1):
