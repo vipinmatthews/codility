@@ -134,6 +134,39 @@ def MaxCounters(N, A):
 
 print MaxCounters(5, [3,4,4,6,1,4,4])
 
+def isSingleSwapSort(A):
+    '''return True if a single swap can sort an array'''
+    n = len(A)
+    if n == 1:
+        return True
+    
+    high = 0
+    for i in range(1,n):
+        if A[i] < A[i-1]:
+            break
+        elif A[i] > A[i-1]:
+            high = i
+
+    if i == n-1:
+        return True
+
+    low = n-1
+    for j in range(n-1, 0, -1):
+        if A[j-1] > A[j]:
+            break
+        elif A[j-1] < A[j]:
+            low = j-1
+
+    A[high],A[low] = A[low],A[high]
+
+    for i in range(n-1):
+        if A[i] > A[i + 1]:
+            return False
+
+    return True
+
+print isSingleSwapSort([1,5,3,3,4])
+
 def triangle(A):
     '''
     Calculate triangel of integers, where sentense of numbers P, Q, R
