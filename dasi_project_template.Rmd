@@ -1,0 +1,97 @@
+---
+title: "Is there a relation between the family income of a person and whom he voted for in 2008 elections?"
+date: "2nd November 2015"
+output:
+  html_document:
+    theme: cerulean
+---
+
+<!-- For more info on RMarkdown see http://rmarkdown.rstudio.com/ -->
+
+<!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
+```{r echo=FALSE}
+load(url("http://bit.ly/dasi_anes_data"))
+```
+
+<!-- In the remainder of the document, add R code chunks as needed -->
+
+### Introduction:
+
+The research question that I am considering for this project is "Is there a relation between the family income group of a person and whom he voted for in 2008 elections?". 
+
+This research tries to answer the question whether there is a relation between the choice of a presidential candidate by a person in 2008 elections and his family income.
+ 
+### Data:
+
+The data used for this study was collected by conducting a survey of voters in the United States, conducted before and after every presidential election.
+
+The different cases in the dataset are the voters in the United States.
+
+I am using incgroup_prepost variable and interest _whovote2008 variable from the anes dataset to answer my research question. 
+
+incgroup_prepost variable is a categorical variable. It gives the family income group in which the person falls. This categorical variable has 28 levels.
+
+interest_whovote2008 variable is a categorical variable. It gives the presidential candidate to whom the person voted for in 2008 elections. This categorical variable has 3 levels.
+
+The study being conducted here is an observational study since we are not doing random assignment here.
+
+We won't be able to generalize the findings of this study to the entire population as we are unsure whether random sampling was employed while selecting people for the survey. It is also mentioned that some people did not respond to the survey. This may create Non response bias in the experiment.
+
+This data cannot be used to establish a causal link between the variables of interest as we are performing an observational study and not an experiment. More formally we are not doing random assignment here. 
+
+### Exploratory data analysis:
+
+
+```{r}
+table(anes$incgroup_prepost, anes$interest_whovote2008)
+```
+
+
+```{r}
+barplot(table(anes$interest_whovote2008,anes$incgroup_prepost),legend=TRUE,beside = TRUE)
+```
+
+The graphs given above and below suggests that Barack Obama is much more popular with people belonging to lower family income groups as compared to people belonging to higher family income groups.
+
+```{r}
+barplot(table(anes$interest_whovote2008,anes$incgroup_prepost),legend=TRUE)
+```
+
+
+### Inference:
+
+The research question is whether the data provide convincing evidence that whether the family income group of a person is related with his choice of presedential candidate in 2008 elections.
+
+H0: family income group of a person and his choice of presedential candidate in 2008 elections are independent of each other.
+Ha: family income group of a person and his choice of presedential candidate in 2008 elections are dependent.
+
+I am using Chi Square independence test here for evaluating the relationship between 2 categorical variables. Chi Square independence test is used since at least 1 categorical variable has more than 2 levels. Here incgroup_prepost variable has 28 levels.
+
+**Conditions for Chi Square test:**
+
+1. Independence: 
+The sampled observations are assumed to be independent here as  5914 people surveyed here is less than 10% of the total population of United States. Each observation here contributes to only 1 cell in the table since a person can only specify that he voted for Barack Obama, John Mccain or Other.
+
+2. Sample size: Here i have to drop the people who voted for Others as they donot have at least 5 cases in each family income group.
+
+```{r}
+us1=subset(anes,anes$interest_whovote2008=='Barack Obama')
+us2=subset(anes,anes$interest_whovote2008=='John Mccain')
+total <- rbind(us1, us2) 
+```
+
+```{r}
+chisq.test(total$interest_whovote2008, total$incgroup_prepost)
+```
+
+### Conclusion:
+
+Insert conclusion here...
+
+### References:
+
+Insert references here...
+
+### Appendix:
+
+Insert appendix here...
